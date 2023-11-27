@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Clothes store</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="header">
+
+		<header>
+			<div class="logo" onclick="window.location.href = 'index.html'">
+				<h1>WEST</h1>
+			</div>
+
+			<div class="registration">
+				<button class="signup" id="registerButton">
+					<h4>Sign up</h4>
+				</button>
+				<button class="login" id="loginButton">
+					<h4>Login</h4>
+				</button>
+			</div>
+		</header>
+
+	</div>
+	<br><br><br>
+
+	<!-- Registration -->
+
+	<div id="registrationModal" class="modal">
+		<div class="modal-content">
+			<span class="close" id="closeRegistration">&times;</span>
+			<h2>Registration</h2>
+			<form id="registrationForm">
+				<input type="text" id="regUsername" placeholder="Username" required pattern="[A-Z][a-zA-Z]*"><br><br>
+				<input type="email" id="regEmail" placeholder="Email" required><br><br>
+				<input type="password" id="regPassword" placeholder="Password" required><br><br>
+				<input type="password" id="regConfirmPassword" placeholder="Confirm Password" required><br><br>
+				<p id="registrationErrorMessage" style="color: red; display: none;">Passwords do not match.</p>
+				<button type="button" onclick="registerUser()">Sign Up</button>
+			</form>
+		</div>
+	</div>
+
+	<div id="loginModal" class="modal">
+		<div class="modal-content">
+			<span class="close" id="closeLogin">&times;</span>
+			<h2>Login</h2>
+			<form id="loginForm">
+				<input type="text" id="logUsername" placeholder="Username" required><br><br>
+				<input type="password" id="logPassword" placeholder="Password" required><br><br>
+				<p id="loginErrorMessage" style="color: red; display: none;">Incorrect username or password.</p>
+				<br>
+				<button type="button" onclick="loginUser()">Login</button>
+			</form><br>
+			<p id="noAccountMessage" style="color: rgb(0, 0, 0); display: none;">No account? <a href="#"
+					onclick="showRegistrationModal()" style="color: #000;">Register here</a></p>
+		</div>
+	</div>
+
+
+
+	<div class="custom-modal" id="registrationSuccessModal">
+		<div class="modal-content2">
+			<h2>Registration Successful</h2>
+			<p>Your registration was successful. You can now log in.</p>
+			<button id="registrationSuccessButton" onclick="closeRegistrationSuccessModal()">OK</button>
+		</div>
+	</div>
+
+
+	<div class="custom-modal" id="registrationFailureModal">
+		<div class="modal-content2">
+			<h2>Registration Failed</h2>
+			<p>Registration failed. Please check your input and try again.</p>
+			<button id="registrationFailureButton" onclick="closeRegistrationFailureModal()">OK</button>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<div class="items">
+			<img src="images/6.jpg" alt="">
+			<a href="#">
+				<h1>MEN</h1>
+			</a>
+		</div>
+		<div class="items">
+			<img src="images/1.jpg" alt="">
+			<a href="#">
+				<h1>WOMEN</h1>
+			</a>
+		</div>
+	</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+	<div class="location">
+		<h1>LOCATION <img src="images/maps-and-flags.png" alt=""></h1><br><br>
+		<div class="location-container">
+
+			<div class="location-info">
+				<img src="images/nav-locations-brooklyn_1200x_607cd499-cabb-4e1d-af28-c59bab9f5947_540x.webp" alt="">
+				<h2>Brooklyn</h2>
+				<p>233 Flatbush Ave,<br>
+					Brooklyn, NY 11217</p><br>
+				<p><b>Monday - Saturday:</b><br>
+					11AM - 8PM<br>
+					<b>Sunday</b><br>
+					11AM - 7PM<br>
+				</p>
+			</div>
+			<br>
+			<div class="location-info">
+				<img src="images/nav-locations-los-angeles_1200x_0dbdc5e9-848c-44f5-aed8-5589e9651c86_540x.webp" alt="">
+				<h2>West Hollywood</h2>
+				<p>8500 Sunset Blvd,<br>
+					West Hollywood, CA 90069</p>
+				<br>
+				<p><b>Monday - Saturday:</b><br>
+					10AM - 8PM<br>
+					<b>Sunday:</b><br>
+					11AM - 7PM<br>
+				</p>
+			</div>
+			<br>
+			<div class="location-info">
+				<img src="images/26_kith_paris_2021_02_11_location_540x.webp" alt="">
+				<h2>Paris</h2>
+				<p>49 Rue Pierre Charron <br>
+					Paris 75008</p>
+				<br>
+				<p><b>Sunday - Saturday:</b><br>
+					10AM - 8PM<br>
+				</p>
+			</div>
+
+			<br>
+			<div class="location-info">
+				<img src="images/7_900x_a71bbdf8-3547-42f1-8f3f-d009f26b7bf7_540x.jpg" alt="">
+				<h2>Tokyo</h2>
+				<p>Miyashita Park North 1st Floor & 2nd Floor <br>
+					6-20-10 Jingumae Shibuya-Ku, Tokyo</p>
+				<br>
+				<p><b>Sunday - Saturday:</b><br>
+					11AM - 8PM<br>
+				</p>
+			</div>
+
+		</div>
+
+		<br>
+
+		<div class="location-container">
+
+			<div class="location-info">
+				<img src="images/nav-locations-hirshleifers_1200x_915b3ee1-17f1-45ea-982c-f03f661fe0cd_540x.webp" alt="">
+				<h2>Hirshleifers</h2>
+				<p>2080 Northern Blvd, <br>
+					Manhasset, NY 11030</p>
+				<br>
+				<p><b>Tuesday - Sunday:</b><br>
+					11AM - 6PM<br>
+					<b>Monday:</b><br>
+					Closed
+				</p>
+			</div>
+			<br>
+			<div class="location-info">
+				<img src="images/nav-locations-bergdorf-goodman_1200x_3d153cf9-e509-4541-89fb-b383cd7f5ea1_540x.webp" alt="">
+				<h2>Bergdorf Goodman</h2>
+				<p>754 Fifth Avenue <br>
+					New York, NY 10019</p>
+				<br>
+				<p><b>Monday - Saturday:</b><br>
+					10AM - 8PM<br>
+					<b>Sunday:</b><br>
+					11AM - 7PM<br>
+				</p>
+			</div>
+		
+			<div class="location-info">
+				<img src="images/MDD_720x2_3126a361-d20a-4084-8b6c-88a783200920_540x.webp" alt="">
+				<h2>Beverly Hills</h2>
+				<p>262 N. Rodeo Drive <br>
+					Beverly Hills, CA 90210</p>
+				<br>
+				<p><b>Monday - Saturday:</b><br>
+					11AM - 8PM<br>
+					<b>Sunday:</b><br>
+					11AM - 7PM<br>
+				</p>
+			</div>
+
+			<br>
+			<div class="location-info">
+				<img src="images/MDD_540x.webp" alt="">
+				<h2>Miami Design District</h2>
+				<p>69 NE 41st Street <br>
+					Miami, FL 33137</p>
+				<br>
+				<p><b>Monday - Saturday:</b><br>
+					11AM - 8PM<br>
+					<b>Sunday:</b><br>
+					11AM - 7PM<br>
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<footer>
+		<br>
+		<div class="logo">
+			<h1>WEST</h1>
+		</div>
+		<div class="links">
+			<ul>
+				<b>
+					<li>HELPFUL LINKS</li>
+				</b>
+				<li>About</li>
+				<li>Press & Media</li>
+				<li>Providers</li>
+				<li>Contact Us</li>
+			</ul>
+
+			<ul>
+				<b>
+					<li>CREATOR TOOLS</li>
+				</b>
+				<li>Soundtrap</li>
+				<li>WEST for Podcasters</li>
+				<li>Noteable</li>
+			</ul>
+
+			<ul>
+				<b>
+					<li>GET THE APP</li>
+				</b>
+				<li><img src="images/footer-ios-a77e2676a3ffba2c521ce743a6d82eea.svg" alt=""></li>
+				<li><img src="images/footer-android-1e8a7815136447656dae5d9e77dfd5ad.svg" alt=""></li>
+			</ul>
+		</div>
+		<br><br><br>
+	</footer>
+
+	<div class="under-line"></div>
+	<br><br>
+	<div class="privacy">
+		<p>© 2023 WEST AB</p>
+		<p>Legal</p>
+		<p>Privacy</p>
+		<p>Cookies</p>
+		<br>
+	</div>
+
+
+
+
+
+	<!-- JavaScript -->
+	<script>
+
+		document.getElementById("registerButton").addEventListener("click", function () {
+			document.getElementById("registrationModal").style.display = "block";
+		});
+
+		document.getElementById("loginButton").addEventListener("click", function () {
+			document.getElementById("loginModal").style.display = "block";
+		});
+
+
+		document.getElementById("closeRegistration").addEventListener("click", function () {
+			if (checkRegistration()) {
+				document.getElementById("registrationModal").style.display = "none";
+			}
+		});
+
+		document.getElementById("closeLogin").addEventListener("click", function () {
+			if (checkLogin()) {
+				document.getElementById("loginModal").style.display = "none";
+			}
+		});
+
+
+		function checkRegistration() {
+			var password = document.getElementById("regPassword").value;
+			var confirmPassword = document.getElementById("regConfirmPassword").value;
+
+			if (password !== confirmPassword) {
+				document.getElementById("registrationErrorMessage").style.display = "block";
+				return false;
+			} else {
+				document.getElementById("registrationErrorMessage").style.display = "none";
+
+				localStorage.setItem("username", document.getElementById("regUsername").value);
+				localStorage.setItem("password", document.getElementById("regPassword").value);
+				return true;
+			}
+		}
+
+
+		function registerUser() {
+			var username = document.getElementById("regUsername").value;
+			var email = document.getElementById("regEmail").value;
+			var password = document.getElementById("regPassword").value;
+			var confirmPassword = document.getElementById("regConfirmPassword").value;
+
+			var usernamePattern = /^[A-Z][a-zA-Z]*$/;
+			var emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+			if (!usernamePattern.test(username) || !emailPattern.test(email) || password !== confirmPassword) {
+
+				document.getElementById("registrationFailureModal").style.display = "block";
+			} else {
+
+				document.getElementById("registrationSuccessModal").style.display = "block";
+			}
+		}
+
+		function closeRegistrationSuccessModal() {
+			document.getElementById("registrationSuccessModal").style.display = "none";
+
+			window.location.href = 'index2.html';
+		}
+
+		function closeRegistrationFailureModal() {
+			document.getElementById("registrationFailureModal").style.display = "none";
+
+		}
+
+
+
+		function loginUser() {
+			var savedUsername = localStorage.getItem("username");
+			var savedPassword = localStorage.getItem("password");
+			var enteredUsername = document.getElementById("logUsername").value;
+			var enteredPassword = document.getElementById("logPassword").value;
+
+			if (enteredUsername === savedUsername && enteredPassword === savedPassword) {
+				alert("Login successful");
+				window.location.href = 'index2.html';
+			} else {
+				document.getElementById("loginErrorMessage").style.display = "block";
+				document.getElementById("noAccountMessage").style.display = "block";
+			}
+		}
+
+		function showRegistrationModal() {
+			document.getElementById("registrationModal").style.display = "block";
+			document.getElementById("loginModal").style.display = "none";
+		}
+
+
+	</script>
+
+
+</body>
+
+</html>
